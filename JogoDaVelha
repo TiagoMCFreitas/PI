@@ -22,7 +22,7 @@ public class JogoDaVelha extends JFrame {
     int o = 0;
     int x = 0;
     JLabel pe = new JLabel("E: 0");
-    JLabel vero = new JLabel("O: ");
+    
     int resultX = 0;
     public JogoDaVelha() {
         setVisible(true);
@@ -37,8 +37,8 @@ public class JogoDaVelha extends JFrame {
         add(pe);
         add(novo);
         add(vencedor);
-        add(vero);
-        vero.setBounds(500,90, 100, 30);
+        
+       
         placar.setBounds(445, 50, 100, 30);
         px.setBounds(400, 75, 100, 30);
         po.setBounds(450, 75, 100, 30);
@@ -171,7 +171,6 @@ public class JogoDaVelha extends JFrame {
         px.setText("X: " + PX);
         po.setText("O: " + PO);
         pe.setText("E: " + PE);
-        vero.setText("O: " + o);
         if(o == 4 && PX > PO){
         vencedor.setText("Parabéns, jogador 1, venceu a partida!");    
         }
@@ -307,7 +306,7 @@ public class JogoDaVelha extends JFrame {
             
            
             o = 0;
-            JOptionPane.showMessageDialog(null,"Seu jogo foi reiniciado:","Jogo Reiniciado",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Seu jogo foi reiniciado!","Jogo Reiniciado",JOptionPane.WARNING_MESSAGE);
     }
         
     public void empatou(){
