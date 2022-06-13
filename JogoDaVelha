@@ -1,8 +1,12 @@
-package jogo.da.velha;
+
+
+package javaapplication5;
 
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
+
+
 
 public class JogoDaVelha extends JFrame {
 
@@ -455,7 +459,8 @@ public class JogoDaVelha extends JFrame {
             JOptionPane.showMessageDialog(null, "Matriz soma:\n " +  "[" + resultD[0][0] + "]"+ " " +" ["+ resultD[0][1]+"] " + " " +" ["+ resultD[0][2] +"] " + " " + " [" + resultD[0][3] +"] " + " " + " [" + resultD [0][4] + "]\n" + "\n " + "[" + resultD[1][0] + "]"+ " " +" ["+ resultD[1][1]+"] " + " " +" ["+ resultD[1][2] +"] " + " " + " [" + resultD[1][3] +"] " + " " + " [" + resultD[1][4] + "]");              JOptionPane.showMessageDialog(null, "Matriz subtração:\n " +  "[" + resultE[0][0] + "]"+ " " +" ["+ resultE[0][1]+"] " + " " +" ["+ resultE[0][2] +"] " + " " + " [" + resultE[0][3] +"] " + " " + " [" + resultE [0][4] + "]\n" + "\n " + "[" + resultE[1][0] + "]"+ " " +" ["+ resultE[1][1]+"] " + " " +" ["+ resultE[1][2] +"] " + " " + " [" + resultE[1][3] +"] " + " " + " [" + resultE[1][4] + "]");
             JOptionPane.showMessageDialog(null, "Matriz multiplicação:\n " +  "[" + resultF[0][0] + "]"+ " " +" ["+ resultF[0][1]+"] " + " " +" ["+ resultF[0][2] +"] " + " " + " [" + resultF[0][3] +"] " + " " + " [" + resultF [0][4] + "]\n" + "\n " + "[" + resultF[1][0] + "]"+ " " +" ["+ resultF[1][1]+"] " + " " +" ["+ resultF[1][2] +"] " + " " + " [" + resultF[1][3] +"] " + " " + " [" + resultF[1][4] + "]");
             JOptionPane.showMessageDialog(null,"binário: " + b);
-            JOptionPane.showMessageDialog(null,"octal: " + Integer.toOctalString(B1));   
+            JOptionPane.showMessageDialog(null,"octal: " + Integer.toOctalString(O1));   
+            JOptionPane.showMessageDialog(null, "hexadecimal: " +  Integer.toHexString(H1));
             JOptionPane.showMessageDialog(null, "O jogo foi finalizado, pressione o Botão de (Novo jogo)");
 
         
