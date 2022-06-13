@@ -35,6 +35,8 @@ public class JogoDaVelha extends JFrame {
     int O1 = 0;
     int H1 = 0;
     String b = " ";
+    String nome = null;
+    String nome2 = null;
     public JogoDaVelha() {
         setVisible(true);
         setTitle("Jogo da velha");
@@ -66,6 +68,8 @@ public class JogoDaVelha extends JFrame {
                 PE = 0;
                 zerarMatriz();
                 atualizar(); 
+                nome = JOptionPane.showInputDialog(null,"Insira seu nome, jogador 1: ");
+                nome2 = JOptionPane.showInputDialog(null,"Insira seu nome, jogador 2: ");
             }
         });
         for (int i = 0; i < 3; i++) {
@@ -163,8 +167,11 @@ public class JogoDaVelha extends JFrame {
             }
         });
 
+        nome = JOptionPane.showInputDialog(null,"Insira seu nome, jogador 1: ");
+        nome2 = JOptionPane.showInputDialog(null,"Insira seu nome, jogador 2: ");
     }
-
+    
+   
     public void mudar(JButton btn) {
         if (xo) {
             btn.setText("O");
@@ -183,11 +190,11 @@ public class JogoDaVelha extends JFrame {
         po.setText("O: " + PO);
         pe.setText("E: " + PE);
         if(o == 4 && PX > PO){
-        vencedor.setText("Parabéns, jogador 1, venceu a partida!");    
+        vencedor.setText("Parabéns " + nome +" venceu a partida!");    
         }
         
         else if(o == 4 && PO > PX){
-        vencedor.setText("Parabéns, jogador 2, venceu a partida!");        
+        vencedor.setText("Parabéns " + nome2 + " venceu a partida!");        
         }
         
         
@@ -212,7 +219,7 @@ public class JogoDaVelha extends JFrame {
                 || (bt[2].getText() == "X" && bt[5].getText() == "X" && bt[8].getText() == "X")
                 || (bt[0].getText() == "X" && bt[4].getText() == "X" && bt[8].getText() == "X")
                 || (bt[6].getText() == "X" && bt[4].getText() == "X" && bt[2].getText() == "X")) {
-            JOptionPane.showMessageDialog(null, "X, ganhou");
+            JOptionPane.showMessageDialog(null, nome + " ganhou");
             
             PX += 5;
             limpar ();
@@ -238,7 +245,7 @@ public class JogoDaVelha extends JFrame {
                 || (bt[2].getText() == "O" && bt[5].getText() == "O" && bt[8].getText() == "O")
                 || (bt[0].getText() == "O" && bt[4].getText() == "O" && bt[8].getText() == "O")
                 || (bt[6].getText() == "O" && bt[4].getText() == "O" && bt[2].getText() == "O")) {
-            JOptionPane.showMessageDialog(null, "O, ganhou");
+            JOptionPane.showMessageDialog(null, nome2 + " ganhou");
             PO += 5;
             limpar();
             atualizar();
@@ -290,10 +297,10 @@ public class JogoDaVelha extends JFrame {
     }
     public void aparecer(){
         if(o == 4 && PX > PO ){
-        JOptionPane.showMessageDialog(null, "resultado jogador 1\n " + "[" + result[0][0] + "]"+ " " +" ["+ result[0][1]+"] " + " " +" ["+ result[0][2] +"] " + " " + " [" + result[0][3] +"] " + " " + " [" + result [0][4] + "]\n" + "resultado jogador 2\n " + "[" + result[1][0] + "]"+ " " +" ["+ result[1][1]+"] " + " " +" ["+ result[1][2] +"] " + " " + " [" + result[1][3] +"] " + " " + " [" + result [1][4] + "]"); 
+        JOptionPane.showMessageDialog(null, "resultado " + nome + "\n " + "[" + result[0][0] + "]"+ " " +" ["+ result[0][1]+"] " + " " +" ["+ result[0][2] +"] " + " " + " [" + result[0][3] +"] " + " " + " [" + result [0][4] + "]\n" + "resultado" + nome2 + "\n " + "[" + result[1][0] + "]"+ " " +" ["+ result[1][1]+"] " + " " +" ["+ result[1][2] +"] " + " " + " [" + result[1][3] +"] " + " " + " [" + result [1][4] + "]"); 
         }
         if(o == 4 && PX < PO){
-        JOptionPane.showMessageDialog(null, "resultado jogador 1\n " + "[" + result[0][0] + "]"+ " " +" ["+ result[0][1]+"] " + " " +" ["+ result[0][2] +"] " + " " + " [" + result[0][3] +"] " + " " + " [" + result [0][4] + "]\n" + "resultado jogador 2\n " + "[" + result[1][0] + "]"+ " " +" ["+ result[1][1]+"] " + " " +" ["+ result[1][2] +"] " + " " + " [" + result[1][3] +"] " + " " + " [" + result [1][4] + "]"); 
+        JOptionPane.showMessageDialog(null, "resultado " + nome + "\n " + "[" + result[0][0] + "]"+ " " +" ["+ result[0][1]+"] " + " " +" ["+ result[0][2] +"] " + " " + " [" + result[0][3] +"] " + " " + " [" + result [0][4] + "]\n" + "resultado" +nome2 +"\n " + "[" + result[1][0] + "]"+ " " +" ["+ result[1][1]+"] " + " " +" ["+ result[1][2] +"] " + " " + " [" + result[1][3] +"] " + " " + " [" + result [1][4] + "]"); 
         }
         
     }
@@ -453,7 +460,7 @@ public class JogoDaVelha extends JFrame {
     public void empatou(){
         if(o == 5 && PX == PO){
             vencedor.setText("EMPATOUUU!!!! ");
-            JOptionPane.showMessageDialog(null, "resultado jogador 1\n " + "[" + result[0][0] + "]"+ " " +" ["+ result[0][1]+"] " + " " +" ["+ result[0][2] +"] " + " " + " [" + result[0][3] +"] " + " " + " [" + result [0][4] + "]\n" + "resultado jogador 2\n " + "[" + result[1][0] + "]"+ " " +" ["+ result[1][1]+"] " + " " +" ["+ result[1][2] +"] " + " " + " [" + result[1][3] +"] " + " " + " [" + result [1][4] + "]");
+            JOptionPane.showMessageDialog(null, "resultado " + nome + "\n " + "[" + result[0][0] + "]"+ " " +" ["+ result[0][1]+"] " + " " +" ["+ result[0][2] +"] " + " " + " [" + result[0][3] +"] " + " " + " [" + result [0][4] + "]\n" + "resultado "+ nome2 + "\n " + "[" + result[1][0] + "]"+ " " +" ["+ result[1][1]+"] " + " " +" ["+ result[1][2] +"] " + " " + " [" + result[1][3] +"] " + " " + " [" + result [1][4] + "]");
             JOptionPane.showMessageDialog(null, "Matriz inversa:\n " +  "[" + resultI[0][0] + "]"+ " " +" ["+ resultI[0][1]+"] " + " " +" ["+ resultI[0][2] +"] " + " " + " [" + resultI[0][3] +"] " + " " + " [" + resultI [0][4] + "]\n" + "\n " + "[" + resultI[1][0] + "]"+ " " +" ["+ resultI[1][1]+"] " + " " +" ["+ resultI[1][2] +"] " + " " + " [" + resultI[1][3] +"] " + " " + " [" + resultI[1][4] + "]");
             JOptionPane.showMessageDialog(null, "Matriz transposta:\n " +  "[" + resultT[0][0] + "]"+ " " +"["+ resultT[0][1]+"]\n" + " " +"["+ resultT[1][0] +"]" + " " + "[" + resultT[1][1] +"]\n" + " " + "[" + resultT [2][0] + "]" + " " + "[" + resultT[2][1] + "]\n"+ " " +"["+ resultT[3][0]+"]" + " " +"["+ resultT[3][1] +"]\n"+"["+ resultT[4][0]+"]" + " " +"["+ resultT[4][1] +"]");
             JOptionPane.showMessageDialog(null, "Matriz soma:\n " +  "[" + resultD[0][0] + "]"+ " " +" ["+ resultD[0][1]+"] " + " " +" ["+ resultD[0][2] +"] " + " " + " [" + resultD[0][3] +"] " + " " + " [" + resultD [0][4] + "]\n" + "\n " + "[" + resultD[1][0] + "]"+ " " +" ["+ resultD[1][1]+"] " + " " +" ["+ resultD[1][2] +"] " + " " + " [" + resultD[1][3] +"] " + " " + " [" + resultD[1][4] + "]");              JOptionPane.showMessageDialog(null, "Matriz subtração:\n " +  "[" + resultE[0][0] + "]"+ " " +" ["+ resultE[0][1]+"] " + " " +" ["+ resultE[0][2] +"] " + " " + " [" + resultE[0][3] +"] " + " " + " [" + resultE [0][4] + "]\n" + "\n " + "[" + resultE[1][0] + "]"+ " " +" ["+ resultE[1][1]+"] " + " " +" ["+ resultE[1][2] +"] " + " " + " [" + resultE[1][3] +"] " + " " + " [" + resultE[1][4] + "]");
