@@ -1,11 +1,14 @@
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package javaapplication9;
+package javaapplication1;
 
 
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
@@ -42,7 +45,9 @@ public class JogoDaVelha extends JFrame {
     String nome = null;
     String nome2 = null;
     int r = 0; 
-    public JogoDaVelha() {
+    
+    public JogoDaVelha(){
+        
         setVisible(true);
         setTitle("Jogo da velha");
         setDefaultCloseOperation(3);
@@ -50,10 +55,13 @@ public class JogoDaVelha extends JFrame {
         int cont = 0;
         setBounds(360, 190, 700, 500);
         add(placar);
+        placar.setForeground(Color.GREEN);
         add(px);
         add(po);
         add(pe);
         add(novo);
+        novo.setBackground(Color.WHITE);
+        novo.setForeground(Color.BLACK);
         add(vencedor);
         add(vez);
         placar.setBounds(445, 50, 100, 30);
@@ -63,6 +71,7 @@ public class JogoDaVelha extends JFrame {
         vencedor.setBounds(370, 120 ,500,30);
         novo.setBounds(418, 150, 100,100);
         vez.setBounds(420, 250, 100, 100);
+        
         novo.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,21 +100,27 @@ public class JogoDaVelha extends JFrame {
             for (int j = 0; j < 3; j++) {
                 bt[cont] = new JButton();
                 add(bt[cont]);
-                bt[cont].setFont(new Font("Arial", Font.BOLD, 40));
+                bt[cont].setFont(new Font("Monospaced", Font.ITALIC + Font.BOLD, 40));
+                bt[cont].setForeground(Color.BLACK);
                 bt[cont].setBounds((100 * i) + 45, (100 * j) + 45, 85, 85);
                 cont++;
+                
             }
         }
+        
         for (int i = 0; i < 9; i++) {
             click[i] = false;
-
+            bt[i].setBackground(Color.GRAY);
         }
         bt[0].addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[0] == false) {
+                    bt[0].setBackground(Color.WHITE);
                     click[0] = true;
                     mudar(bt[0]);
+                    
+                    
                 }
             }
         });
@@ -113,8 +128,10 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[1] == false) {
+                    bt[1].setBackground(Color.WHITE);
                     click[1] = true;
                     mudar(bt[1]);
+                    
                 }
             }
         });
@@ -122,6 +139,7 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[2] == false) {
+                     bt[2].setBackground(Color.WHITE);
                     click[2] = true;
                     mudar(bt[2]);
                 }
@@ -131,6 +149,7 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[3] == false) {
+                    bt[3].setBackground(Color.WHITE);
                     click[3] = true;
                     mudar(bt[3]);
                 }
@@ -140,6 +159,7 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[4] == false) {
+                    bt[4].setBackground(Color.WHITE);
                     click[4] = true;
                     mudar(bt[4]);
                 }
@@ -149,6 +169,7 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[5] == false) {
+                    bt[5].setBackground(Color.WHITE);
                     click[5] = true;
                     mudar(bt[5]);
                 }
@@ -158,6 +179,7 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[6] == false) {
+                    bt[6].setBackground(Color.WHITE);
                     click[6] = true;
                     mudar(bt[6]);
                 }
@@ -167,6 +189,7 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[7] == false) {
+                    bt[7].setBackground(Color.WHITE);
                     click[7] = true;
                     mudar(bt[7]);
                 }
@@ -176,6 +199,7 @@ public class JogoDaVelha extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (click[8] == false) {
+                    bt[8].setBackground(Color.WHITE);
                     click[8] = true;
                     mudar(bt[8]);
                 }
@@ -184,16 +208,19 @@ public class JogoDaVelha extends JFrame {
 
         nome = JOptionPane.showInputDialog(null,"Insira seu nome, jogador 1: ");
         nome2 = JOptionPane.showInputDialog(null,"Insira seu nome, jogador 2: ");
+    
     }
     
    
     public void mudar(JButton btn) {
         if (xo) {
             btn.setText("O");
+            btn.setForeground(Color.RED);
             xo = false;
 
         } else {
             btn.setText("X");
+            btn.setForeground(Color.GREEN);
             xo = true;
             
         }
@@ -314,7 +341,7 @@ public class JogoDaVelha extends JFrame {
         for(int i = 0 ;i < 9 ; i++){
             bt[i]. setText(" ");
             click[i] = false;
-            
+            bt[i].setBackground(Color.GRAY);
         }
     }
     
@@ -363,7 +390,7 @@ public class JogoDaVelha extends JFrame {
              resultT[j][1] = result[1][j];
         }
         if(o == 4 && PX > PO){
-        JOptionPane.showMessageDialog(null, "Matriz transposta:\n " +  "[" + resultT[0][0] + "]"+ " " +"["+ resultT[0][1]+"]\n" + " " +"["+ resultT[1][0] +"]" + " " + "[" + resultT[1][1] +"]\n" + " " + "[" + resultT [2][0] + "]" + " " + "[" + resultT[2][1] + "]\n"+ " " +"["+ resultT[3][0]+"]" + " " +"["+ resultT[3][1] +"]\n"+"["+ resultT[4][0]+"]" + " " +"["+ resultT[4][1] +"]");
+        JOptionPane.showMessageDialog(null, "Matriz transposta:\n " +  "[" + resultT[0][0] + "]"+ " " +"["+ resultT[0][1]+"]\n" + " " +"["+ resultT[1][0] +"]" + " " + "[" + resultT[1][1] +"]\n" + " " + "[" + resultT [2][0] + "]" + " " + "[" + resultT[2][1] + "]\n"+ " " +"["+ resultT[3][0]+"]" + " " +"["+ resultT[3][1] +"]\n" + "["+ resultT[4][0]+"]" + " " +"["+ resultT[4][1] +"]");
         }
         if(o == 4 && PO > PX){ 
         JOptionPane.showMessageDialog(null, "Matriz transposta:\n " +  "[" + resultT[0][0] + "]"+ " " +"["+ resultT[0][1]+"]\n" + " " +"["+ resultT[1][0] +"]" + " " + "[" + resultT[1][1] +"]\n" + " " + "[" + resultT [2][0] + "]" + " " + "[" + resultT[2][1] + "]\n"+ " " +"["+ resultT[3][0]+"]" + " " +"["+ resultT[3][1] +"]\n"+"["+ resultT[4][0]+"]" + " " +"["+ resultT[4][1] +"]");
@@ -422,7 +449,7 @@ public class JogoDaVelha extends JFrame {
       if(o == 4 && PX > PO){
       JOptionPane.showMessageDialog(null, "Matriz multiplicação:\n " +  "[" + resultF[0][0] + "]"+ " " +" ["+ resultF[1][0]+"] " + "\n " +" ["+ resultF[0][1] +"] " + " " + " [" + resultF[1][1] +" ]"); 
       }
-      if(o == 4 && PO < PX){
+      if(o == 4 && PO > PX){
       JOptionPane.showMessageDialog(null, "Matriz multiplicação:\n " +  "[" + resultF[0][0] + "]"+ " " +" ["+ resultF[1][0]+"] " + "\n " +" ["+ resultF[0][1] +"] " + " " + " [" + resultF[1][1] +" ]");
       }
       }
@@ -463,7 +490,8 @@ public class JogoDaVelha extends JFrame {
     }     
     }    
 
-     public void zerarMatriz (){
+        
+    public void zerarMatriz (){
         
             for(int i = 0 ; i < 5 ; i++){
                 result[0][i] = 0;
@@ -526,6 +554,3 @@ public class JogoDaVelha extends JFrame {
     
         }
   }
-
-  
-
