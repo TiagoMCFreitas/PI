@@ -240,10 +240,12 @@ public class JogoDaVelha extends JFrame {
         pe.setText("E: " + PE);
         if(o == 4 && PX > PO){
         vencedor.setText("Parabéns " + nome +" venceu a partida!");    
+        
         }
         
         else if(o == 4 && PO > PX){
         vencedor.setText("Parabéns " + nome2 + " venceu a partida!");        
+        
         }
         
         
@@ -283,8 +285,7 @@ public class JogoDaVelha extends JFrame {
             aparecer7();
             aparecer8();
             aparecer9();
-            o++;
-            
+            o++; 
         }else if ((bt[0].getText() == "O" && bt[1].getText() == "O" && bt[2].getText() == "O")
                 || (bt[3].getText() == "O" && bt[4].getText() == "O" && bt[5].getText() == "O")
                 || (bt[6].getText() == "O" && bt[7].getText() == "O" && bt[8].getText() == "O")
@@ -455,17 +456,20 @@ public class JogoDaVelha extends JFrame {
       }
       
       public void aparecer7(){
-         for(int i = 0 ; i < 5 ; i++){
-          B1 =  result[0][i] + result[1][i];
-         }
-         b = Integer.toBinaryString(B1);
          
-         if(o == 4 && PX < PO){
-         JOptionPane.showMessageDialog(null,"binário: " + b);         
-         }
-         if(o == 4 && PX > PO){
-         JOptionPane.showMessageDialog(null,"binário: " + b);         
-         }
+           B1 = B1 + result[0][o] + result[1][o];
+           b = Integer.toBinaryString(B1);
+           
+           if(o == 4 && PX > PO){
+
+           JOptionPane.showMessageDialog(null,"soma: " + B1 + " \nbinário: " + b);
+           }
+           if(o == 4 && PO > PX){
+           JOptionPane.showMessageDialog(null," soma: " + B1 + " \nbinário: " + b);
+                   
+           } 
+            
+         
       }    
     public void aparecer8(){
         O1 = B1;
